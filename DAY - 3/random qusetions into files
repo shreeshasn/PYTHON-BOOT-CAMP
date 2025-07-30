@@ -1,0 +1,17 @@
+import random
+ope=["+","-","*","/","%"]
+n=int(input('HOW MANY QUESTIONS WOULD YOU LIKE?'))
+with open("hell.txt", "w") as f:
+    f.write("Que\t\tInp\tExp\t Status\n\n")
+    for i in range(n):
+        a,b,op,res=random.randint(0,9) , random.randint(0,9), random.choice(ope), ""
+        q=f"{a}{op}{b}"
+        ans=eval(q)
+        user=input(f"{q} = ")
+        if int(ans)==int(user):
+            res="CORRECT" 
+        else:
+            res="INCORRECT"
+        print(res)
+        f.write(str(q)+"\t\t"+str(user)+"\t\t"+str(int(ans))+"\t"+res+"\n\n")
+    f.close()
